@@ -10,6 +10,9 @@ bot = lightbulb.BotApp(os.environ["BOT_TOKEN"],
 					   keep_alive(),
                        intents=hikari.Intents.ALL,
                        banner=None,
+					   default_enabled_guilds=(920287565859397632, 
+											   931099412493664316, 
+											   860177061636866058)
 					   )
 
 
