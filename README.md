@@ -1,2 +1,2 @@
 # goosebot
-multipurpose bot written with hikari-lightbulb
+valorant store checker bot written with hikari-lightbulb
