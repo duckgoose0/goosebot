@@ -193,7 +193,7 @@ async def store(ctx: lightbulb.Context) -> None:
         embed0 = (
         hikari.Embed(
             title=f"Here's your store!",
-            colour=embed_color[0],
+            colour=0x07FE82,
             timestamp=datetime.now().astimezone(),
         )
         .set_footer(
@@ -204,14 +204,40 @@ async def store(ctx: lightbulb.Context) -> None:
             shop[0],
             f'{shop[2]} VP'
         )
-        .set_image(
-            shop[1]
+        .add_field(
+            shop[3],
+            f'{shop[5]} VP'
+        )
+        .add_field(
+            shop[6],
+            f'{shop[8]} VP'
+        )
+        .add_field(
+            shop[9],
+            f'{shop[11]} VP'
         )
         ) 
 
         embed1 = (
         hikari.Embed(
-            title=f"Here's your store!",
+            title=shop[0],
+            description=f'{shop[2]} VP',
+            colour=embed_color[0],
+            timestamp=datetime.now().astimezone(),
+        )
+        .set_footer(
+            text=f"Requested by {ctx.member.display_name}",
+            icon=ctx.member.avatar_url or ctx.member.default_avatar_url,
+        )
+        .set_image(
+            shop[1]
+        )
+        ) 
+
+        embed2 = (
+        hikari.Embed(
+            title=shop[3],
+            description=f'{shop[5]} VP',
             colour=embed_color[1],
             timestamp=datetime.now().astimezone(),
         )
@@ -219,18 +245,15 @@ async def store(ctx: lightbulb.Context) -> None:
             text=f"Requested by {ctx.member.display_name}",
             icon=ctx.member.avatar_url or ctx.member.default_avatar_url,
         )
-        .add_field(
-            shop[3],
-            f'{shop[5]} VP'
-        )
         .set_image(
             shop[4]
         )
         )
 
-        embed2 = (
+        embed3 = (
         hikari.Embed(
-            title=f"Here's your store!",
+            title=shop[6],
+            description=f'{shop[8]} VP',
             colour=embed_color[2],
             timestamp=datetime.now().astimezone(),
         )
@@ -238,18 +261,15 @@ async def store(ctx: lightbulb.Context) -> None:
             text=f"Requested by {ctx.member.display_name}",
             icon=ctx.member.avatar_url or ctx.member.default_avatar_url,
         )
-        .add_field(
-            shop[6],
-            f'{shop[8]} VP'
-        )
         .set_image(
             shop[7]
         )
         )
 
-        embed3 = (
+        embed4 = (
         hikari.Embed(
-            title=f"Here's your store!",
+            title=shop[9],
+            description=f'{shop[11]} VP',
             colour=embed_color[3],
             timestamp=datetime.now().astimezone(),
         )
@@ -257,16 +277,12 @@ async def store(ctx: lightbulb.Context) -> None:
             text=f"Requested by {ctx.member.display_name}",
             icon=ctx.member.avatar_url or ctx.member.default_avatar_url,
         )
-        .add_field(
-            shop[9],
-            f'{shop[11]} VP'
-        )
         .set_image(
             shop[10]
         )
         )
 
-        pages = [embed0, embed1, embed2, embed3]
+        pages = [embed0, embed1, embed2, embed3, embed4]
 
         navigator = nav.ButtonNavigator(pages, timeout=None)
         await navigator.run(ctx)
